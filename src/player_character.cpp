@@ -49,7 +49,7 @@ void PlayerCharacter::Init()
     playerFixtureDef.shape = &playerBox;
     playerFixtureDef.density = 1.0f;
     playerFixtureDef.friction = 0.0f;
-    playerFixtureDef.userData = &playerBoxData;
+    playerFixtureDef.userData.pointer = reinterpret_cast <std::uintptr_t>(&playerBoxData);
     body_->CreateFixture(&playerFixtureDef);
 
     b2PolygonShape playerFootBox;
@@ -60,7 +60,7 @@ void PlayerCharacter::Init()
     b2FixtureDef playerFootFixtureDef;
     playerFootFixtureDef.isSensor = true;
     playerFootFixtureDef.shape = &playerFootBox;
-    playerFootFixtureDef.userData = &playerFootData;
+    playerFootFixtureDef.userData.pointer = reinterpret_cast <std::uintptr_t>(&playerFootData);
     body_->CreateFixture(&playerFootFixtureDef);
 
 

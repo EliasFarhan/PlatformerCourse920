@@ -31,8 +31,8 @@ add_custom_target(
 
 find_package(OpenGL REQUIRED)
 find_package(SFML COMPONENTS system window graphics CONFIG REQUIRED)
-find_package(unofficial-box2d CONFIG REQUIRED)
-
+#find_package(unofficial-box2d CONFIG REQUIRED)
+find_package(box2d CONFIG REQUIRED)
 include_directories(include/)
 
 file(GLOB_RECURSE PLATFORMER_SRC src/*.cpp include/*.h)
@@ -47,4 +47,4 @@ else()
 target_link_libraries(Platformer PRIVATE X11 FLAC UDev OpenAL  ${OPENGL_LIBRARIES} )
 endif()
 
-target_link_libraries(Platformer PRIVATE unofficial::box2d::box2d)
+target_link_libraries(Platformer PRIVATE box2d::box2d)

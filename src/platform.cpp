@@ -39,7 +39,7 @@ void Platform::Init()
     b2PolygonShape platformShape;
     platformShape.SetAsBox(boxSize.x, boxSize.y);
     b2FixtureDef platformFixtureDef;
-    platformFixtureDef.userData = &platformUserData_;
+    platformFixtureDef.userData.pointer = reinterpret_cast <std::uintptr_t>(&platformUserData_);
     platformFixtureDef.shape = &platformShape;
     body_->CreateFixture(&platformFixtureDef);
 
